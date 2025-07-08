@@ -85,7 +85,7 @@ def proportional_variance(
         A pandas series object, whose indices are `scores` indices, and whose values are the adjusted score.
         Note that this series is sorted in descending order.
     '''
-    std_scores = scores.std(axis=0)
+    std_scores = scores.var(axis=0)
     weights = std_scores / std_scores.sum()
 
     adjusted_scores = np.sum(
